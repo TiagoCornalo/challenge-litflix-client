@@ -1,0 +1,142 @@
+.draw-button {
+    width: 250px;
+    height: 56px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    background: rgba(36, 36, 36, 0.5);
+    animation: background-appear-animation 1s ease-in-out forwards;
+    overflow: hidden;
+    border: none;
+    letter-spacing: 4px;
+    opacity: 0;
+    animation-delay: 1s;
+}
+
+
+@keyframes background-appear-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+
+.draw-button__icon-top {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.5s ease-out;
+    animation: draw-top 1s forwards;
+    animation-delay: 2s;
+}
+
+.draw-button__icon-right {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+    background-color: #fff;
+    transition: height 0.5s ease-out, background-color 0.5s ease-out 0.5s;
+    animation: draw-right 1s forwards;
+    animation-delay: 2s;
+}
+
+.draw-button__icon-bottom {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.5s ease-out;
+    animation: draw-bottom 1s forwards;
+    animation-delay: 1s;
+}
+
+.draw-button__icon-left {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background-color: #fff;
+    transition: height 0.5s ease-out, background-color 0.5s ease-out 0.5s;
+    animation: draw-left 1s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes draw-top {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes draw-right {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+        background-color: #fff;
+    }
+}
+
+@keyframes draw-bottom {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes draw-left {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+        background-color: #fff;
+    }
+}
+
+.draw-button__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    animation: slide-and-fade 1s forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes slide-and-fade {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

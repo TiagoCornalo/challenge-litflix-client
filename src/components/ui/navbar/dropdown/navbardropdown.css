@@ -1,0 +1,178 @@
+
+.navbar-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    background: rgba(36, 36, 36, 0.9);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+.to-left-opacity-animation{
+    animation: to-left-opacity-animation 0.5s ease-in-out;
+}
+
+.from-left-animation{
+    animation: from-left-animation 0.5s ease-in-out;
+}
+
+
+.navbar-dropdown span{
+    padding: 20px 16px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-size: 22px;
+    font-family: 'Bebas Thin', sans-serif;
+}
+
+.nav-dropdown-options-container .navbar-dropdown-add-movie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    padding: 30px 16px;
+}
+
+.navbar-dropdown-top-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+.navbar-dropdown-close-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.navbar-dropdown-close-icon {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.navbar-dropdown-avatar-bell-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-dropdown-bell-icon{
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 40px;
+    animation:  fall-opacity-animation 1s ease-in-out;
+    margin-left: 40px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.nav-dropdown-options-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+.navbar-dropdown.closing {
+    animation: to-left-opacity-animation 0.5s ease-in-out;
+}
+
+@media (max-width: 1100px) {
+    .navbar-dropdown {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        border-radius: 0;
+        background: rgba(36, 36, 36, 1);
+    }
+    .navbar-dropdown span{
+        padding: 10px 16px;
+    }
+    .from-left-animation{
+        animation: from-right-opacity-animation 0.5s ease-in-out;
+    }
+    .to-left-opacity-animation{
+        animation: to-right-opacity-animation 0.5s ease-in-out;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@keyframes from-left-animation {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes to-left-opacity-animation {
+    from {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes from-right-opacity-animation{
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes to-right-opacity-animation{
+    from {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+
+@keyframes fall-opacity-animation {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
