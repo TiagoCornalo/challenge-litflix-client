@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { type ReactNode } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import HomeLiteFlix from './components/home/HomeLiteFlix'
+import MovieProvider from './context/MovieProvider'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface WithProviderProps {
+  children: ReactNode
 }
 
-export default App;
+function App (): JSX.Element {
+  return (
+        <>
+            <Routes>
+                <Route path="/" element={
+                    <WithProvider>
+                        <HomeLiteFlix/>
+                    </WithProvider>
+                }/>
+            </Routes>
+        </>
+  )
+}
+
+const WithProvider = ({ children }: WithProviderProps): JSX.Element => {
+  return (
+        <MovieProvider>
+            {children}
+        </MovieProvider>
+  )
+}
+
+export default App
