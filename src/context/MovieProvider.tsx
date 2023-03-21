@@ -13,7 +13,6 @@ interface MovieProviderProps {
  * @property {Movie[] | undefined} popularMovies - List of popular movies.
  * @property {Movie[]} userMovies - List of user movies.
  * @property {Movie | undefined} featuredMovie - Featured movie of the day.
- * @property {(movie: Movie) => void} addMovie - Add a movie to the user's list.
  */
 
 /**
@@ -45,19 +44,9 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
     video: false
   });
 
-  /**
-   * Add a movie to the user's list.
-   *
-   * @param {Movie} movie - The movie to add.
-   */
-
-  const addMovie = (movie: Movie): void => {
-    setUserMovies([...userMovies, movie]);
-  };
-
   useEffect(() => {
     /**
-     * Fetch the featured movie of the day.
+     * Fetch the featured movies of the day and randomly select one.
      */
     const fetchFeaturedMovie = async (): Promise<void> => {
       try {
@@ -90,7 +79,7 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <MovieContext.Provider value={{ popularMovies, userMovies, featuredMovie, addMovie }}>
+    <MovieContext.Provider value={{ popularMovies, userMovies, featuredMovie}}>
       {children}
     </MovieContext.Provider>
   );

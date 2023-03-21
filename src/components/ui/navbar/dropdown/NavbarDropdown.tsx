@@ -7,12 +7,14 @@ interface NavbarDropdownProps {
   setIsMenuOpen: (isOpen: boolean) => void
   isClosing: boolean
   setIsClosing: (isClosing: boolean) => void
+  setOpenAddMoviePopup: (isOpen: boolean) => void
 }
 
 const NavbarDropdown = ({
   setIsMenuOpen,
   isClosing,
-  setIsClosing
+  setIsClosing,
+  setOpenAddMoviePopup
 }: NavbarDropdownProps): JSX.Element => {
   const handleMenuClose = (): void => {
     setIsClosing(true)
@@ -45,7 +47,7 @@ const NavbarDropdown = ({
             <span>POPULARES</span>
             <span>MIS PELÍCULAS</span>
             <span>MI LISTA</span>
-            <span className="navbar-dropdown-add-movie">
+            <span className="navbar-dropdown-add-movie" onClick={()=>setOpenAddMoviePopup(true)}>
                 <BsPlusLg/>
                 <span>
                     AGREGAR PELÍCULA

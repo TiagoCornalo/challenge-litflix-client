@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Movie-App-Liteflix-/.idea/Movie-App-Liteflix-.iml" filepath="$PROJECT_DIR$/../Movie-App-Liteflix-/.idea/Movie-App-Liteflix-.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/liteflix-challenge-client.iml" filepath="$PROJECT_DIR$/.idea/liteflix-challenge-client.iml" />
     </modules>
   </component>

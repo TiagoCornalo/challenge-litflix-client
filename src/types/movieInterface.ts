@@ -2,7 +2,6 @@ export interface MovieContextProps {
   popularMovies: Movie[] | undefined
   userMovies: Movie[] | undefined
   featuredMovie: Movie | undefined
-  addMovie: (movie: Movie) => void
 
 }
 

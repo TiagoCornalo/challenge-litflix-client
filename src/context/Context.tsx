@@ -3,7 +3,6 @@ import { type MovieContextProps } from '../types/movieInterface'
 export const MovieContext = createContext<MovieContextProps>({
   popularMovies: [],
   userMovies: [],
-  addMovie: () => {},
   featuredMovie: {
     id: '',
     title: '',

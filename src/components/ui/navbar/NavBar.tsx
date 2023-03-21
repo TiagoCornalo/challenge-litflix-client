@@ -8,7 +8,7 @@ import AddMoviePopup from './AddMoviePopup/AddMoviePopup'
 const NavBar = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false) // controls whether the menu is open or closed
   const [isClosing, setIsClosing] = useState(false) // controls whether the dropdown is closing or not
-  const [openAddMoviePopup, setOpenAddMoviePopup] = useState(false) // controls whether the "Add Movie" popup is open or closed
+  const [openAddMoviePopup, setOpenAddMoviePopup] = useState(false) // controls whether the “Add Movie” popup is open or closed
 
   const handleMenuClick = () => {
     setIsMenuOpen((isOpen) => !isOpen)
@@ -44,6 +44,7 @@ const NavBar = (): JSX.Element => {
                     setIsMenuOpen={setIsMenuOpen}
                     isClosing={isClosing}
                     setIsClosing={setIsClosing}
+                    setOpenAddMoviePopup={setOpenAddMoviePopup}
                 />
             )}
           {

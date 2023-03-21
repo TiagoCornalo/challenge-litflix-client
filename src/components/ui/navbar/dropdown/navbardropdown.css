@@ -42,6 +42,7 @@
     font-weight: bold;
     letter-spacing: 4px;
     padding: 30px 16px;
+    cursor: pointer;
 }
 
 .navbar-dropdown-top-container{
