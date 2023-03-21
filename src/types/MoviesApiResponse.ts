@@ -1,4 +1,4 @@
-import { type Movie } from './movieInterface'
+import  { Movie } from './movieInterface'
 
 export interface FeaturedMoviesApiResponse {
   dates: {

@@ -6,13 +6,14 @@ import NavbarDropdown from './dropdown/NavbarDropdown'
 import AvatarPicture from '../../../assets/avatar/avatar.jpeg'
 import AddMoviePopup from './AddMoviePopup/AddMoviePopup'
 const NavBar = (): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isClosing, setIsClosing] = useState(false)
-  const [openAddMoviePopup, setOpenAddMoviePopup] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false) // controls whether the menu is open or closed
+  const [isClosing, setIsClosing] = useState(false) // controls whether the dropdown is closing or not
+  const [openAddMoviePopup, setOpenAddMoviePopup] = useState(false) // controls whether the "Add Movie" popup is open or closed
+
   const handleMenuClick = () => {
     setIsMenuOpen((isOpen) => !isOpen)
     setIsClosing(false)
-  }
+  } // toggles the menu and resets the dropdown closing state
 
   return (
         <div className='navbar-container'>
@@ -21,12 +22,13 @@ const NavBar = (): JSX.Element => {
             </div>
             <div className='navbar-left-container'>
             <div className="navbar-logo">
-                <span className={`navbar-logo-title-bold ${isMenuOpen ? 'padding-left-logo' : ''}`}>Lite</span><span className={'navbar-logo-title-thin'}>Flix</span>
+                <span className={`navbar-logo-title-bold ${isMenuOpen ? 'padding-left-logo' : ''}`}>lite</span>
+              <span className={'navbar-logo-title-thin'}>Flix</span>
             </div>
                 <div className='navbar-add-movie'>
                     <BsPlusLg className={'navbar-add-movie-plus'} />
                     <span className={'navbar-add-movie-title-bold'} onClick={()=>setOpenAddMoviePopup(true)}>
-                    AGREGAR PELÍCULA
+                    agregar película
                 </span>
                 </div>
             </div>

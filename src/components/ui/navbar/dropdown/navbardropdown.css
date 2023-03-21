@@ -64,6 +64,7 @@
 .navbar-dropdown-close-icon {
     color: #fff;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .navbar-dropdown-avatar-bell-container{

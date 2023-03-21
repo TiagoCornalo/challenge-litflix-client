@@ -32,14 +32,17 @@
     font-weight: 700;
     letter-spacing: 4px;
     line-height: 40px;
+    text-shadow: 0 0 10px #242424;
 }
 
 .navbar-logo-title-thin{
     color: #64EEBC;
     font-size: 34px;
-    font-weight: lighter;
+    font-weight: bold;
     letter-spacing: 4px;
     line-height: 40px;
+    font-family: 'Bebas Thin', sans-serif;
+    text-shadow: 0 0 10px #242424;
 }
 
 .navbar-add-movie{
