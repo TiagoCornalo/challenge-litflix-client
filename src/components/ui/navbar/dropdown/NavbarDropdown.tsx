@@ -10,6 +10,14 @@ interface NavbarDropdownProps {
   setOpenAddMoviePopup: (isOpen: boolean) => void
 }
 
+/**
+
+ NavbarDropdown component which contains a dropdown menu that appears when the user clicks on the user avatar in the navbar.
+ @param {NavbarDropdownProps} props - Props for the NavbarDropdown component
+ @returns {JSX.Element} NavbarDropdown component
+
+ */
+
 const NavbarDropdown = ({
   setIsMenuOpen,
   isClosing,

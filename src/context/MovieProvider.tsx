@@ -44,6 +44,9 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   });
   const [showUserMovies, setShowUserMovies] = useState(false);
 
+  /**
+   * Function that fetches the user movies from the API
+   */
   const fetchUserMovies = async (): Promise<void> => {
     try {
       const data: UserMovie[] | undefined = await fetchDataFromApi();
@@ -71,6 +74,9 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
     void fetchFeaturedMovie();
   }, []);
 
+  /**
+   * Fetch the user movies when the component is mounted.
+   */
   useEffect(()=> {
       void fetchUserMovies();
   },[])
