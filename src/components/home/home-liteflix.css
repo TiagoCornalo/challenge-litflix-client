@@ -144,14 +144,24 @@
 .home-content-right{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 20%;
+    margin-top: 5%;
+    height: 80%;
     padding-right: 50px;
 }
 
 .faded-background-responsive{
     display: none;
+}
+
+.home-dropdown-movies-select{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 

@@ -15,5 +15,7 @@ export const MovieContext = createContext<MovieContextProps>({
     original_language: '',
     original_title: '',
     video: false
-  }
+  },
+  showUserMovies: false,
+  setShowUserMovies: () => {},
 })

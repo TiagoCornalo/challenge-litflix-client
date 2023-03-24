@@ -5,10 +5,10 @@ import { MovieContext } from '../../context/Context'
 import ButtonBorderAnimated from '../ui/buttons/BorderedAnimated/AnimatedButtonBorders'
 import AnimatedWidthButton from '../ui/buttons/WidthAnimatedButton/AnimatedWidthButton'
 import MovieCard from '../ui/cards/MovieCard/MovieCard'
-
+import MovieSelector from "../ui/selector/MovieSelector";
 // This component renders the home page of Liteflix
 const HomeLiteFlix = (): JSX.Element => {
-  const { featuredMovie, popularMovies } = useContext(MovieContext)
+  const { featuredMovie, popularMovies, showUserMovies, userMovies } = useContext(MovieContext)
 
   return (
     <div>
@@ -40,12 +40,19 @@ const HomeLiteFlix = (): JSX.Element => {
               </div>
             </div>
             <div className="home-content-right">
-              <div className="home-dropdown-movies-select">
-                <div className="home-movie-select-text"></div>
-                <div className="home-movie-select-dropdown"></div>
-              </div>
+              <MovieSelector  /> {/* Renders a selector to show popular movies or user movies */}
               {/* Renders a list of popular movies as cards */}
-              {popularMovies?.map((movie) => {
+              {showUserMovies ? userMovies?.map((movie) => {
+               return (
+                 <MovieCard
+                  key={movie._id}
+                  image={movie.image_path}
+                  year={movie.release_date}
+                  title={movie.original_title}
+                  stars={movie.vote_average}
+                />
+               )
+              }) : popularMovies?.map((movie) => {
                 return (
                   <MovieCard
                     image={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}

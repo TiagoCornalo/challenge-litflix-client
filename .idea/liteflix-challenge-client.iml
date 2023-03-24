@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Movie-App-Liteflix-" />
+    <orderEntry type="module" module-name="challenge-liteflix-api" />
   </component>
 </module>

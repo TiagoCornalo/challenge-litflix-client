@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { MovieContext } from './Context';
-import { Movie } from '../types/movieInterface';
+import { Movie, UserMovie } from '../types/movieInterface';
 import { FeaturedMoviesApiResponse, PopularMoviesApiResponse} from "../types/MoviesApiResponse";
-import { fetchDataFromTheMovieDBApi, fetchPopularMoviesFromTheMovieDBApi } from './utils/fetchData';
-
+import { fetchDataFromTheMovieDBApi, fetchPopularMoviesFromTheMovieDBApi, fetchDataFromApi } from './utils/fetchData';
 interface MovieProviderProps {
   children: React.ReactNode;
 }
@@ -29,7 +28,7 @@ interface MovieProviderProps {
 
 const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   const [popularMovies, setPopularMovies] = useState<Movie[] | undefined>([]);
-  const [userMovies, setUserMovies] = useState<Movie[]>([]);
+  const [userMovies, setUserMovies] = useState<UserMovie[] | undefined>([]);
   const [featuredMovie, setFeaturedMovie] = useState<Movie | undefined>({
     id: '',
     title: '',
@@ -43,6 +42,17 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
     original_title: '',
     video: false
   });
+  const [showUserMovies, setShowUserMovies] = useState(false);
+
+  const fetchUserMovies = async (): Promise<void> => {
+    try {
+      const data: UserMovie[] | undefined = await fetchDataFromApi();
+      console.log(data);
+      setUserMovies(data?.slice(0,4) || []);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     /**
@@ -60,6 +70,10 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
     };
     void fetchFeaturedMovie();
   }, []);
+
+  useEffect(()=> {
+      void fetchUserMovies();
+  },[])
 
   useEffect(() => {
     /**
@@ -79,7 +93,7 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <MovieContext.Provider value={{ popularMovies, userMovies, featuredMovie}}>
+    <MovieContext.Provider value={{ popularMovies, userMovies, featuredMovie, setUserMovies, showUserMovies, setShowUserMovies}}>
       {children}
     </MovieContext.Provider>
   );

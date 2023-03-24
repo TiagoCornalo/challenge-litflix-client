@@ -1,7 +1,20 @@
 import './movidecard.css'
 import { FiPlay } from 'react-icons/fi'
 import { AiFillStar } from 'react-icons/ai'
-const MovieCard = ({ image, title, stars, year }: { image?: string | undefined, title?: string | undefined, stars?: number | undefined, year?: string | undefined }): JSX.Element => {
+
+interface MovieCardProps {
+  image?: string | undefined
+  title?: string | undefined
+  stars?: number | undefined
+  year?: string | undefined
+
+}
+
+const MovieCard = ({
+                       image,
+                       title,
+                       stars,
+                       year }: MovieCardProps ): JSX.Element => {
   return (
         <div className="card" style={{
           backgroundImage: `url(${image})`
@@ -12,7 +25,7 @@ const MovieCard = ({ image, title, stars, year }: { image?: string | undefined, 
             <div className="card-movie-title">
                 {title}
             </div>
-            {/* ALL THIS DIV CONTENT WILL RENDER WHEN HOVERING */}
+            {/* ALL FROM THIS DIV CONTENT WILL RENDER WHEN HOVERING */}
             <div className="hover-card-container">
                 <div className="hover-title-play-container">
                     <div className="hover-play-container">

@@ -1,17 +1,47 @@
-import React, { useState } from 'react'
-import Dropzone from 'react-dropzone'
+import React, {useState} from 'react'
 import './addmoviepopup.css'
-import { TfiClose } from 'react-icons/tfi'
+import {TfiClose} from 'react-icons/tfi'
 import useHandlePostMovie from './utils/handlePostMovie'
-import Clip from '../../../../assets/svg/clip.svg'
-import ProgressBar from "./ProgressBar/ProgressBar";
+import RenderHeader from "./partials/RenderHeader";
+import RenderDropzone from "./partials/RenderDropzone";
+import RenderInputAndAddMovieButton from "./partials/RenderInputAndAddMovieButton";
+
 interface AddMoviePopupProps {
   setOpenAddMoviePopup: (isOpen: boolean) => void
 }
 
-const AddMoviePopup = ({ setOpenAddMoviePopup }: AddMoviePopupProps): JSX.Element => {
-  const [isClosing, setIsClosing] = useState(false)
+/**
 
+ Interface for props passed to AddMoviePopup component.
+ @interface AddMoviePopupProps
+ @property {(isOpen: boolean) => void} setOpenAddMoviePopup - A function to toggle the visibility of AddMoviePopup.
+ */
+/**
+
+ AddMoviePopup component renders a popup for adding a movie with a file upload feature.
+ @function
+ @param {AddMoviePopupProps} props - Props object that contains setOpenAddMoviePopup function.
+ @returns {JSX.Element} - Returns JSX markup for AddMoviePopup component.
+ */
+const AddMoviePopup = ({setOpenAddMoviePopup}: AddMoviePopupProps): JSX.Element => {
+
+  /**
+
+   React state hook to manage closing of the popup.
+   @name isClosing
+   @type {boolean}
+   @function
+   @default false
+   */
+  const [isClosing, setIsClosing] = useState(false)
+  /**
+
+   Custom hook to handle adding of a movie using file upload feature.
+   @name useHandlePostMovie
+   @function
+   @param {Object} onSubmit - A function to handle submitting of a file for movie upload.
+   @returns {Object} - Returns object with various functions and states related to movie upload.
+   */
   const {
     fileData,
     handleDrop,
@@ -21,7 +51,7 @@ const AddMoviePopup = ({ setOpenAddMoviePopup }: AddMoviePopupProps): JSX.Elemen
     isLoading,
     uploadProgress,
     errorAddMovie,
-    handleRetryUpload ,
+    handleRetryUpload,
     successAddMovie
   } = useHandlePostMovie({
     onSubmit: (file) => {
@@ -31,14 +61,27 @@ const AddMoviePopup = ({ setOpenAddMoviePopup }: AddMoviePopupProps): JSX.Elemen
       })
     },
   })
+  /**
 
+   Function to handle closing of the popup when user clicks on the close button.
+   @name handleCloseButtonClick
+   @function
+   @returns {void}
+   */
   const handleCloseButtonClick = (): void => {
     setIsClosing(true)
     setTimeout(() => {
       setOpenAddMoviePopup(false)
     }, 300)
   }
+  /**
 
+   Function to handle closing of the popup when user clicks outside the popup area.
+   @name handleClickOutside
+   @function
+   @param {React.MouseEvent<HTMLDivElement, MouseEvent>} e - The click event that occurred.
+   @returns {void}
+   */
   const handleClickOutside = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (e.target === e.currentTarget) {
       setIsClosing(true)
@@ -48,98 +91,43 @@ const AddMoviePopup = ({ setOpenAddMoviePopup }: AddMoviePopupProps): JSX.Elemen
     }
   }
 
-  const renderProgressIndicator = () => {
-    if (errorAddMovie || successAddMovie) {
-      return <span className='progress-loading-text'>{errorAddMovie}</span>;
-    } else {
-      return (
-        <>
-          <span className='progress-loading-text'>Cargando</span>
-          <span className='progress-percentage-text'>{uploadProgress}%</span>
-        </>
-      );
-    }
-  };
-
-  const renderProgressBar = () => {
-    if (!successAddMovie) {
-      return <ProgressBar progress={uploadProgress} errorAddMovie={errorAddMovie} />;
-    } else {
-      return (
-        <div className='finished-upload-movie-container'>
-          <span className='upload-congrats-text'>¡Felicitaciones!</span>
-          <span className='upload-description'>{movieName} fue correctamente subida.</span>
-        </div>
-      );
-    }
-  };
-
-  const renderDropzone = () => {
-    if(!isLoading && !fileData) {
-      return (
-        <div className='popup-file-dropzone-container'>
-          <Dropzone onDrop={handleDrop}>
-            {({getRootProps, getInputProps}) => (
-              <div {...getRootProps()} className='popup-file-dropzone'>
-                <input {...getInputProps()} />
-                <img src={Clip} alt="clip icon file"/>
-                <p className='drop-file-text'>Agregá un archivo o arrastralo y soltalo aquí</p>
-              </div>
-            )}
-          </Dropzone>
-        </div>
-      )
-    } else {
-      return (
-        <div className='popup-file-progress-container'>
-          <div className='progress-indicator-container'>
-            {renderProgressIndicator()}
-          </div>
-          {renderProgressBar()}
-          {errorAddMovie ?
-            <div className="retry-button-container">
-              <span className='retry-loading-text' onClick={handleRetryUpload}>
-                Reintentar
-              </span>
-            </div> :
-            null
-          }
-        </div>
-      )
-    }
-  }
 
 
   return (
-    <div className={`add-popup-container-main ${isClosing ? 'pop-up-background-fade' : 'pop-up-background-appear'}`} onClick={handleClickOutside}>
+    <div className={`add-popup-container-main ${isClosing ? 'pop-up-background-fade' : 'pop-up-background-appear'}`}
+         onClick={handleClickOutside}>
       <div className={`add-popup-subcontainer ${isClosing ? 'pop-up-fall-down' : 'pop-up-rise'}`}>
+        <RenderHeader
+          handleCloseButtonClick={handleCloseButtonClick}
+        />
         <div className='add-popup-close-icon'>
-          <TfiClose className='navbar-dropdown-close-icon' onClick={handleCloseButtonClick} />
+          <TfiClose className='navbar-dropdown-close-icon' onClick={handleCloseButtonClick}/>
         </div>
         <div className='add-popup-title'>{
-          successAddMovie ? <>
+          successAddMovie ? <div className='show-logo-on-desktop-size'>
             <span className='navbar-logo-title-bold'>lite</span>
             <span className='navbar-logo-title-thin'>Flix</span>
-          </>: 'Agregar película'
+          </div> : 'Agregar película'
         }</div>
-        {renderDropzone()}
-        {!successAddMovie ?
-          <>
-          <div className='add-movie-input-container'>
-          <input type="text" placeholder="título" className="add-movie-input" value={movieName}
-                 onChange={(e) => setMovieName(e.target.value)}/>
-        </div>
-          <div className='add-movie-button-container'>
-          <button className='add-movie-button' onClick={handleSubmit} style={{
-          background: movieName !== '' && fileData ? '#fff' : 'rgba(255, 255, 255, 0.5)',
-        }}>agregar</button>
-          </div>
-          </>
-          :
-          <div className='go-to-home-button-container'>
-          <button className='add-movie-button' onClick={()=>setOpenAddMoviePopup(false)} style={{background: '#fff'}}>ir al home</button>
-          </div>
-        }
+        <RenderDropzone
+          errorAddMovie={errorAddMovie}
+          handleRetryUpload={handleRetryUpload}
+          handleDrop={handleDrop}
+          successAddMovie={successAddMovie}
+          uploadProgress={uploadProgress}
+          isLoading={isLoading}
+          fileData={fileData}
+          movieName={movieName}
+        />
+        <RenderInputAndAddMovieButton
+          successAddMovie={successAddMovie}
+          handleSubmit={handleSubmit}
+          setMovieName={setMovieName}
+          movieName={movieName}
+          setOpenAddMoviePopup={setOpenAddMoviePopup}
+          handleCloseButtonClick={handleCloseButtonClick}
+          fileData={fileData}
+        />
       </div>
     </div>
   )
