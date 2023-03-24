@@ -12,7 +12,7 @@ const postUrl = 'https://challenge-liteflix-api-production.up.railway.app/api/mo
 export const uploadMovieWithPicture = async (
   name: string,
   file: File,
-  fetchUserMovies: () => void,
+  fetchUserMovies: (() => void) | undefined,
 ): Promise<void> => {
   const formData = new FormData();
   formData.append('name', name);
@@ -26,7 +26,7 @@ export const uploadMovieWithPicture = async (
     });
 
     if (response) {
-      fetchUserMovies();
+      fetchUserMovies?.();
     } else {
       console.error('Failed to upload photo');
     }
