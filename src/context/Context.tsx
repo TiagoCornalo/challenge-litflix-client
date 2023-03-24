@@ -18,4 +18,5 @@ export const MovieContext = createContext<MovieContextProps>({
   },
   showUserMovies: false,
   setShowUserMovies: () => {},
+  fetchUserMovies: () => {}
 })

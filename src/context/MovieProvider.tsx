@@ -99,7 +99,7 @@ const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <MovieContext.Provider value={{ popularMovies, userMovies, featuredMovie, setUserMovies, showUserMovies, setShowUserMovies}}>
+    <MovieContext.Provider value={{ popularMovies, userMovies, featuredMovie, setUserMovies, showUserMovies, setShowUserMovies, fetchUserMovies}}>
       {children}
     </MovieContext.Provider>
   );

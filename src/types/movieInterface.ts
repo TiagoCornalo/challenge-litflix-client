@@ -5,6 +5,7 @@ export interface MovieContextProps {
   setUserMovies?: (movies: UserMovie[]) => void
   showUserMovies?: boolean
   setShowUserMovies?: (show: boolean) => void
+  fetchUserMovies?: () => void
 }
 
 export interface Movie {

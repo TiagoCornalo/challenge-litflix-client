@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { MovieContext } from '../../../../../context/Context';
 import { FileRejection, DropEvent } from 'react-dropzone';
 import { uploadMovieWithPicture } from './postData';
 
@@ -19,6 +20,7 @@ export interface HandleFileSubmitProps {
  * @returns Object containing state values and functions for handling file upload and movie data submission.
  */
 const useHandlePostMovie = ({ onSubmit }: HandleFileSubmitProps) => {
+  const { fetchUserMovies } = useContext(MovieContext);
   const [fileData, setFileData] = useState<File | null>(null);
   const [movieName, setMovieName] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -74,7 +76,7 @@ const useHandlePostMovie = ({ onSubmit }: HandleFileSubmitProps) => {
   const handleSubmit = async () => {
     if (!fileData) return;
     try {
-      const response = await uploadMovieWithPicture(movieName, fileData);
+      const response = await uploadMovieWithPicture(movieName, fileData, fetchUserMovies);
       console.log('response', response);
       setSuccessAddMovie(true);
     } catch (error) {
