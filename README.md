@@ -1,46 +1,43 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Liteflix Client
 
-## Available Scripts
+A brief description of what this project does and who it's for
 
-In the project directory, you can run:
+## Descripción 
 
-### `npm start`
+Liteflix es un proyecto de películas desarrollado como parte de un challenge. Permite ver las mejores películas de TheMovieDB y cargar tus propias películas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+El proyecto está desarrollado en Typescript y React, y toda la aplicación está tipada. También se ha documentado todo el código con JSDOC.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funcionalidades
 
-### `npm test`
+- Ver las mejores películas de TheMovieDB
+- Cargar tus propias películas
+- Buscar películas
+- Ver detalles de una película
+- Ver tus propias películas cargadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Animaciones
 
-### `npm run build`
+Se han incluido animaciones personalizadas en toda la aplicación para mejorar la experiencia del usuario.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Cómo correr el proyecto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clonar el repositorio
+2. Instalar dependencias con `npm install`
+3. Iniciar la aplicación con `npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API
 
-### `npm run eject`
+La aplicación consume la API de TheMovieDB para obtener información sobre las películas. Para cargar tus propias películas, se ha desarrollado una API personalizada que se integra con Cloudinary.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tecnologías utilizadas
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- TypeScript
+- React
+- CSS
+- Context Api
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Créditos
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Este proyecto fue desarrollado por `Tiago Cornalo` como parte de un challenge.
