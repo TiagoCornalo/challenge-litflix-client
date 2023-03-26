@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { type Movie } from '../../types/movieInterface'
 import type { FeaturedMoviesApiResponse, PopularMoviesApiResponse, UserUploadedMovie } from '../../types/MoviesApiResponse'
 const fetchUrlApi = 'https://challenge-liteflix-api-production.up.railway.app/api/movies'
 const fetchUrlTheMovieDbApi = 'https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20'

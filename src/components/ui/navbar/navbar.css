@@ -26,25 +26,6 @@
     animation: fall-opacity-animation  1s ease-in-out;
 }
 
-.navbar-logo-title-bold{
-    color: #64EEBC;
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    line-height: 40px;
-    text-shadow: 0 0 10px #242424;
-}
-
-.navbar-logo-title-thin{
-    color: #64EEBC;
-    font-size: 34px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    line-height: 40px;
-    font-family: 'Bebas Thin', sans-serif;
-    text-shadow: 0 0 10px #242424;
-}
-
 .navbar-add-movie{
     display: flex;
     justify-content: center;
@@ -146,7 +127,7 @@
     }
     .navbar-logo{
         padding-left: 0;
-        z-index: 6;
+        z-index: 5;
     }
     .navbar-menu-responsive{
         display: flex;

@@ -8,6 +8,7 @@ interface InputAndMovieButtonProps {
   handleSubmit: () => void
   setOpenAddMoviePopup: (isOpen: boolean) => void
   fileData: File | null
+  setIsMenuOpen: (isOpen: boolean) => void
 
 }
 
@@ -24,7 +25,15 @@ const RenderInputAndAddMovieButton = ({
                                         handleCloseButtonClick,
                                         handleSubmit,
                                         setOpenAddMoviePopup,
-                                        fileData }: InputAndMovieButtonProps) => {
+                                        fileData,
+                                        setIsMenuOpen
+                                      }: InputAndMovieButtonProps) => {
+
+  const handleGoToHomeButtonClick = () => {
+    setOpenAddMoviePopup(false)
+    setIsMenuOpen(false)
+  }
+
   if (!successAddMovie) {
     return (
       <>
@@ -55,7 +64,7 @@ const RenderInputAndAddMovieButton = ({
   } else {
     return (
       <div className='go-to-home-button-container'>
-        <button className='add-movie-button' onClick={() => setOpenAddMoviePopup(false)}
+        <button className='add-movie-button' onClick={handleGoToHomeButtonClick}
                 style={{background: '#fff'}}>ir al home
         </button>
       </div>

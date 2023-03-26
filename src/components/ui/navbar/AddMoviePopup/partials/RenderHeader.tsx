@@ -1,7 +1,7 @@
 import {HiOutlineMenuAlt2} from "react-icons/hi";
 import AvatarPicture from "../../../../../assets/avatar/avatar.jpeg";
 import '../addmoviepopup.css'
-
+import LiteFlixLogo from "../../logo/LiteFlixLogo";
 
 interface RenderHeaderProps {
   handleCloseButtonClick: () => void;
@@ -18,10 +18,7 @@ const RenderHeader = ({handleCloseButtonClick}:RenderHeaderProps) => {
       <div className="add-popup-header-menu-icon">
         <HiOutlineMenuAlt2 className={'navbar-menu-icon-responsive'} onClick={handleCloseButtonClick} style={{animation:'none'}}/>
       </div>
-      <div className="navbar-logo" style={{animation:'none'}}>
-        <span className='navbar-logo-title-bold'>lite</span>
-        <span className='navbar-logo-title-thin'>Flix</span>
-      </div>
+      <LiteFlixLogo animation={'none'}/>
       <div className='navbar-avatar' style={{animation:'none'}}>
         <img src={AvatarPicture} alt=""/>
       </div>

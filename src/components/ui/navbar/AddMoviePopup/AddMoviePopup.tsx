@@ -8,6 +8,7 @@ import RenderInputAndAddMovieButton from "./partials/RenderInputAndAddMovieButto
 
 interface AddMoviePopupProps {
   setOpenAddMoviePopup: (isOpen: boolean) => void
+  setIsMenuOpen: (isOpen: boolean) => void
 }
 
 /**
@@ -23,7 +24,7 @@ interface AddMoviePopupProps {
  @param {AddMoviePopupProps} props - Props object that contains setOpenAddMoviePopup function.
  @returns {JSX.Element} - Returns JSX markup for AddMoviePopup component.
  */
-const AddMoviePopup = ({setOpenAddMoviePopup}: AddMoviePopupProps): JSX.Element => {
+const AddMoviePopup = ({setOpenAddMoviePopup, setIsMenuOpen}: AddMoviePopupProps): JSX.Element => {
 
   /**
 
@@ -127,6 +128,7 @@ const AddMoviePopup = ({setOpenAddMoviePopup}: AddMoviePopupProps): JSX.Element 
           setOpenAddMoviePopup={setOpenAddMoviePopup}
           handleCloseButtonClick={handleCloseButtonClick}
           fileData={fileData}
+          setIsMenuOpen={setIsMenuOpen}
         />
       </div>
     </div>

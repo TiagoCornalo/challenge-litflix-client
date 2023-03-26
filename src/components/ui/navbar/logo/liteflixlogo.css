@@ -1,0 +1,45 @@
+.lite-flix-logo-container{
+    animation: fall-opacity-animation  1s ease-in-out;
+}
+.lite-flix-logo-container-padding{
+    padding-left: calc(150px - 35px);
+}
+
+.lite-flix-title-bold{
+    color: #64EEBC;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 40px;
+    text-shadow: 0 0 10px #242424;
+}
+
+.lite-flix-title-thin{
+    color: #64EEBC;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 40px;
+    font-family: 'Bebas Thin', sans-serif;
+    text-shadow: 0 0 10px #242424;
+}
+
+@media screen and (max-width: 1100px) {
+    .lite-flix-logo-container-padding{
+        padding-left: 0;
+    }
+    .display-none-responsive{
+        display: none;
+    }
+}
+
+@keyframes fall-opacity-animation {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

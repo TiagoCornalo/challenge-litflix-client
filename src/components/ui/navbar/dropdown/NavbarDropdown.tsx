@@ -40,6 +40,10 @@ const NavbarDropdown = ({
                 <button className='navbar-dropdown-close-button' onClick={handleMenuClose}>
                     <TfiClose className='navbar-dropdown-close-icon' />
                 </button>
+              <div className='navbar-dropdown-logo-container'>
+                <span className='navbar-logo-title-bold'>lite</span>
+                <span className='navbar-logo-title-thin'>Flix</span>
+              </div>
                 <div className="navbar-dropdown-avatar-bell-container">
                     <BsBell className={'navbar-dropdown-bell-icon'} />
                     <div className={'navbar-avatar'}>
