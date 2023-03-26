@@ -1,8 +1,5 @@
 
 # Liteflix Client
-
-A brief description of what this project does and who it's for
-
 ## Descripción 
 
 Liteflix es un proyecto de películas desarrollado como parte de un challenge. Permite ver las mejores películas de TheMovieDB y cargar tus propias películas.
